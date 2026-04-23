@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             // Simulate registration success
             alert('Registration Successful! Please login.');
-            window.location.href = 'login.html';
+            window.location.href = 'index.html';
         });
     }
 
