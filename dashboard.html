@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Robot Monitoring</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="grid-background">
+        <svg class="grid-pattern" aria-hidden="true">
+            <defs>
+                <pattern id="grid-pattern-dash" width="40" height="40" patternUnits="userSpaceOnUse" x="-1" y="-1">
+                    <path d="M.5 40V.5H40" fill="none"></path>
+                </pattern>
+            </defs>
+            <rect width="100%" height="100%" stroke-width="0" fill="url(#grid-pattern-dash)"></rect>
+        </svg>
+    </div>
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="p-4 mb-4 border-bottom border-secondary">
+            <h4 class="fw-bold mb-0 text-cyan"><i class="bi bi-robot me-2"></i>ROBOTRACK</h4>
+        </div>
+        <div class="nav flex-column">
+            <a href="#" class="nav-link active"><i class="bi bi-speedometer2 me-2"></i> Dashboard</a>
+            <a href="#" class="nav-link"><i class="bi bi-box-seam me-2"></i> Robots Inventory</a>
+            <a href="#" class="nav-link"><i class="bi bi-geo-alt me-2"></i> Live Tracking</a>
+            <a href="#" class="nav-link"><i class="bi bi-journal-text me-2"></i> Activity Logs</a>
+            <a href="#" class="nav-link mt-auto"><i class="bi bi-gear me-2"></i> Settings</a>
+            <a href="login.html" class="nav-link text-danger"><i class="bi bi-box-arrow-left me-2"></i> Logout</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Header -->
+        <header class="d-flex justify-content-between align-items-center mb-5">
+            <div>
+                <h2 class="fw-bold mb-0">System Overview</h2>
+                <p class="text-muted">Real-time status of your warehouse fleet</p>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="me-3 text-end">
+                    <p class="mb-0 fw-bold">Admin User</p>
+                    <small class="text-muted">Warehouse Manager</small>
+                </div>
+                <img src="https://ui-avatars.com/api/?name=Admin+User&background=06b6d4&color=fff" class="rounded-circle" width="48" alt="Avatar">
+            </div>
+        </header>
+
+        <!-- Stats Grid -->
+        <div class="row g-4 mb-5">
+            <div class="col-md-3">
+                <div class="glass-card p-4">
+                    <p class="text-muted small mb-1">Active Robots</p>
+                    <h3 class="fw-bold mb-0">24 / <span class="text-muted">30</span></h3>
+                    <div class="progress mt-3" style="height: 6px; background-color: rgba(255,255,255,0.1);">
+                        <div class="progress-bar bg-cyan" style="width: 80%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="glass-card p-4">
+                    <p class="text-muted small mb-1">Avg. Battery</p>
+                    <h3 class="fw-bold mb-0 text-amber">78%</h3>
+                    <div class="progress mt-3" style="height: 6px; background-color: rgba(255,255,255,0.1);">
+                        <div class="progress-bar bg-warning" style="width: 78%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="glass-card p-4">
+                    <p class="text-muted small mb-1">Tasks Pending</p>
+                    <h3 class="fw-bold mb-0">142</h3>
+                    <small class="text-cyan"><i class="bi bi-arrow-up"></i> 12% from yesterday</small>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="glass-card p-4">
+                    <p class="text-muted small mb-1">System Status</p>
+                    <h3 class="fw-bold mb-0 text-success">OPTIMAL</h3>
+                    <small class="text-muted">Next maintenance: 2 days</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Robot Table -->
+        <div class="glass-card p-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h5 class="fw-bold mb-0">Robot Fleet Status</h5>
+                <button class="btn btn-sm btn-outline-light border-secondary">View All</button>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-dark table-hover mb-0">
+                    <thead>
+                        <tr class="text-muted small">
+                            <th>ROBOT ID</th>
+                            <th>STATUS</th>
+                            <th>LOCATION</th>
+                            <th>BATTERY</th>
+                            <th>CURRENT TASK</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody class="align-middle">
+                        <tr>
+                            <td class="fw-bold">R-8021</td>
+                            <td><span class="status-indicator status-online"></span> Moving</td>
+                            <td>Zone A-12</td>
+                            <td class="battery-val">84%</td>
+                            <td>Shelf Delivery</td>
+                            <td><button class="btn btn-sm btn-link text-cyan p-0"><i class="bi bi-eye"></i></button></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">R-8022</td>
+                            <td><span class="status-indicator status-online"></span> Idle</td>
+                            <td>Charge Station 2</td>
+                            <td class="battery-val">99%</td>
+                            <td>-</td>
+                            <td><button class="btn btn-sm btn-link text-cyan p-0"><i class="bi bi-eye"></i></button></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">R-8025</td>
+                            <td><span class="status-indicator status-warning"></span> Warning</td>
+                            <td>Zone B-04</td>
+                            <td class="battery-val text-amber">12%</td>
+                            <td>Returning to Base</td>
+                            <td><button class="btn btn-sm btn-link text-cyan p-0"><i class="bi bi-eye"></i></button></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">R-8030</td>
+                            <td><span class="status-indicator status-offline"></span> Offline</td>
+                            <td>Maintenance Bay</td>
+                            <td class="battery-val">0%</td>
+                            <td>Repairing</td>
+                            <td><button class="btn btn-sm btn-link text-cyan p-0"><i class="bi bi-eye"></i></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Features Bento Grid -->
+        <div class="mt-5">
+            <h5 class="fw-bold mb-4">Advanced Analytics & Security</h5>
+            <div class="bento-grid">
+                <!-- Customizable Card -->
+                <div class="glass-card bento-card col-span-6 lg:col-span-2">
+                    <div class="card-content text-center d-flex flex-column justify-content-center">
+                        <div class="position-relative mx-auto" style="height: 100px; width: 200px;">
+                            <svg class="text-muted opacity-25 position-absolute w-100 h-100" viewBox="0 0 254 104" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M112.891 97.7022C140.366 97.0802 171.004 94.6715 201.087 87.5116C210.43 85.2881 219.615 82.6412 228.284 78.2473C232.198 76.3179 235.905 73.9942 239.348 71.3124C241.85 69.2557 243.954 66.7571 245.555 63.9408C249.34 57.3235 248.281 50.5341 242.498 45.6109C239.033 42.7237 235.228 40.2703 231.169 38.3054C219.443 32.7209 207.141 28.4382 194.482 25.534C184.013 23.1927 173.358 21.7755 162.64 21.2989C161.376 21.3512 160.113 21.181 158.908 20.796C158.034 20.399 156.857 19.1682 156.962 18.4535C157.115 17.8927 157.381 17.3689 157.743 16.9139C158.104 16.4588 158.555 16.0821 159.067 15.8066C160.14 15.4683 161.274 15.3733 162.389 15.5286C179.805 15.3566 196.626 18.8373 212.998 24.462C220.978 27.2494 228.798 30.4747 236.423 34.1232C240.476 36.1159 244.202 38.7131 247.474 41.8258C254.342 48.2578 255.745 56.9397 251.841 65.4892C249.793 69.8582 246.736 73.6777 242.921 76.6327C236.224 82.0192 228.522 85.4602 220.502 88.2924C205.017 93.7847 188.964 96.9081 172.738 99.2109C153.442 101.949 133.993 103.478 114.506 103.79C91.1468 104.161 67.9334 102.97 45.1169 97.5831C36.0094 95.5616 27.2626 92.1655 19.1771 87.5116C13.839 84.5746 9.1557 80.5802 5.41318 75.7725C-0.54238 67.7259 -1.13794 59.1763 3.25594 50.2827C5.82447 45.3918 9.29572 41.0315 13.4863 37.4319C24.2989 27.5721 37.0438 20.9681 50.5431 15.7272C68.1451 8.8849 86.4883 5.1395 105.175 2.83669C129.045 0.0992292 153.151 0.134761 177.013 2.94256C197.672 5.23215 218.04 9.01724 237.588 16.3889C240.089 17.3418 242.498 18.5197 244.933 19.6446C246.627 20.4387 247.725 21.6695 246.997 23.615C246.455 25.1105 244.814 25.5605 242.63 24.5811C230.322 18.9961 217.233 16.1904 204.117 13.4376C188.761 10.3438 173.2 8.36665 157.558 7.52174C129.914 5.70776 102.154 8.06792 75.2124 14.5228C60.6177 17.8788 46.5758 23.2977 33.5102 30.6161C26.6595 34.3329 20.4123 39.0673 14.9818 44.658C12.9433 46.8071 11.1336 49.1622 9.58207 51.6855C4.87056 59.5336 5.61172 67.2494 11.9246 73.7608C15.2064 77.0494 18.8775 79.925 22.8564 82.3236C31.6176 87.7101 41.3848 90.5291 51.3902 92.5804C70.6068 96.5773 90.0219 97.7419 112.891 97.7022Z" fill="currentColor" />
+                            </svg>
+                            <span class="position-absolute top-50 start-50 translate-middle text-5xl font-semibold">100%</span>
+                        </div>
+                        <h4 class="mt-4 fw-bold">Customizable</h4>
+                    </div>
+                </div>
+
+                <!-- Secure by Default Card -->
+                <div class="glass-card bento-card col-span-6 sm:col-span-3 lg:col-span-2">
+                    <div class="card-content">
+                        <div class="mx-auto size-32 rounded-full border border-white-10 d-flex position-relative mb-4">
+                             <svg class="m-auto h-fit w-75 opacity-50" viewBox="0 0 212 143" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path class="text-muted" d="M44.0209 55.3542C43.1945 54.7639 42.6916 54.0272 42.5121 53.1442C42.3327 52.2611 42.5995 51.345 43.3125 50.3958C50.632 40.3611 59.812 32.5694 70.8525 27.0208C81.8931 21.4722 93.668 18.6979 106.177 18.6979C118.691 18.6979 130.497 21.3849 141.594 26.7587C152.691 32.1326 161.958 39.8936 169.396 50.0417C170.222 51.1042 170.489 52.0486 170.196 52.875C169.904 53.7014 169.401 54.4097 168.688 55C167.979 55.5903 167.153 55.8571 166.208 55.8004C165.264 55.7437 164.438 55.2408 163.729 54.2917C157.236 45.0833 148.885 38.0307 138.675 33.1337C128.466 28.2368 117.633 25.786 106.177 25.7812C94.7257 25.7812 83.9827 28.2321 73.948 33.1337C63.9132 38.0354 55.5903 45.0881 48.9792 54.2917C48.2709 55.3542 47.4445 55.9444 46.5 56.0625C45.5556 56.1806 44.7292 55.9444 44.0209 55.3542Z" fill="currentColor" />
+                                <path class="text-cyan" d="M3 72H209" stroke="currentColor" stroke-width="6" stroke-linecap="round" />
+                            </svg>
+                        </div>
+                        <div class="text-center">
+                            <h5 class="fw-bold mb-2">Secure by default</h5>
+                            <p class="text-muted small">Military-grade encryption for all robot communications and data transfers.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Faster than Light Card -->
+                <div class="glass-card bento-card col-span-6 sm:col-span-3 lg:col-span-2">
+                    <div class="card-content">
+                        <div class="mb-4">
+                            <svg class="w-100" viewBox="0 0 386 123" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 121.077C3 121.077 15.3041 93.6691 36.0195 87.756C56.7349 81.8429 66.6632 80.9723 66.6632 80.9723C66.6632 80.9723 80.0327 80.9723 91.4656 80.9723C102.898 80.9723 100.415 64.2824 108.556 64.2824C116.696 64.2824 117.693 92.1332 125.226 92.1332C132.759 92.1332 142.07 78.5115 153.591 80.9723C165.113 83.433 186.092 92.1332 193 92.1332C199.908 92.1332 205.274 64.2824 213.017 64.2824C220.76 64.2824 237.832 93.8946 243.39 92.1332C248.948 90.3718 257.923 60.5 265.284 60.5C271.145 60.5 283.204 87.7182 285.772 87.756C293.823 87.8746 299.2 73.0802 304.411 73.0802C311.283 73.0802 321.425 65.9506 333.552 64.2824C345.68 62.6141 346.91 82.4553 362.27 80.9723" stroke="#06b6d4" stroke-width="3" />
+                            </svg>
+                        </div>
+                        <div class="text-center">
+                            <h5 class="fw-bold mb-2">Faster than light</h5>
+                            <p class="text-muted small">Sub-millisecond latency for real-time robot control and fleet coordination.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shield / Analytics Card -->
+                <div class="glass-card bento-card col-span-6 lg:col-span-3">
+                    <div class="card-content d-flex flex-column flex-sm-row gap-4">
+                        <div class="flex-grow-1 d-flex flex-column justify-content-between">
+                            <div class="size-12 rounded-full border border-white-10 d-flex mb-4">
+                                <i data-lucide="shield" class="m-auto text-cyan"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-2">Real-time Analytics</h5>
+                                <p class="text-muted small mb-0">Deep insights into robot performance, energy usage, and operational efficiency.</p>
+                            </div>
+                        </div>
+                        <div class="flex-grow-1 rounded border border-white-10 p-3 bg-black bg-opacity-25">
+                             <svg class="w-100" viewBox="0 0 366 231" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 179.796L4.05663 172.195V183.933L7.20122 174.398L8.45592 183.933L10.0546 186.948V155.455L12.6353 152.613V145.122L15.3021 134.71V149.804V155.455L16.6916 160.829L18.1222 172.195V158.182L19.8001 152.613L21.4105 148.111V137.548L23.6863 142.407V126.049L25.7658 127.87V120.525L27.2755 118.066L29.1801 112.407V123.822L31.0426 120.525V130.26L32.3559 134.71L34.406 145.122V137.548L35.8982 130.26L37.1871 126.049L38.6578 134.71L40.659 138.977V130.26V126.049L43.7557 130.26V123.822L45.972 112.407L47.3391 103.407V92.4726L49.2133 98.4651V106.053L52.5797 89.7556L54.4559 82.7747L56.1181 87.9656L58.9383 89.7556V98.4651L60.7617 103.407L62.0545 123.822L63.8789 118.066L65.631 122.082L68.5479 114.229L70.299 109.729L71.8899 118.066L73.5785 123.822V130.26L74.9446 134.861L76.9243 127.87L78.352 134.71V138.977L80.0787 142.407V152.613L83.0415 142.407V130.26L86.791 123.822L89.0121 116.645V122.082L90.6059 127.87L92.3541 131.77L93.7104 123.822L95.4635 118.066L96.7553 122.082V137.548L99.7094 140.988V131.77L101.711 120.525L103.036 116.645V133.348L104.893 136.218L106.951 140.988L108.933 134.71L110.797 130.26L112.856 140.988V148.111L115.711 152.613L117.941 145.122L119.999 140.988L121.501 148.111L123.4 152.613L125.401 158.182L127.992 152.613L131.578 146.76V155.455L134.143 158.182L135.818 164.629L138.329 158.182L140.612 160.829L144.117 166.757L146.118 155.455L147.823 149.804L151.02 152.613L154.886 145.122L158.496 140.988V133.348L161.295 127.87V122.082L162.855 116.645V109.729L164.83 103.407L166.894 109.729L176.249 98.4651L178.254 106.169L180.77 98.4651V81.045L182.906 69.1641L184.8 56.8669L186.477 62.8428L187.848 79.7483L188.849 106.169L191.351 79.7483L193.485 75.645V98.4651L196.622 94.4523L198.623 87.4228V79.7483L200.717 75.645L202.276 81.045V89.3966L203.638 113.023L205.334 99.8037L207.164 94.4523L208.982 98.4651V102.176L211.267 107.64L212.788 81.045L214.437 66.0083L216.19 62.8428L217.941 56.8669V73.676V79.7483L220.28 75.645L222.516 66.0083V73.676H226.174V84.8662L228.566 98.4651L230.316 75.645L233.61 94.4523V104.25L236.882 102.176L239.543 113.023L241.057 98.4651L243.604 94.4523L244.975 106.169L245.975 87.4228L247.272 89.3966L250.732 84.8662L251.733 96.7549L254.644 94.4523L257.452 99.8037L259.853 91.3111L261.193 84.8662L264.162 75.645L265.808 87.4228L267.247 58.4895L269.757 66.0083L276.625 13.5146L273.33 58.4895L276.25 67.6563L282.377 20.1968L281.37 58.4895V66.0083L283.579 75.645L286.033 56.8669L287.436 73.676L290.628 77.6636L292.414 84.8662L294.214 61.3904L296.215 18.9623L300.826 0.947876L297.531 56.8669L299.973 62.8428L305.548 22.0598L299.755 114.956L301.907 105.378L304.192 112.688V94.9932L308.009 80.0829L310.003 94.9932L311.004 102.127L312.386 105.378L315.007 112.688L316.853 98.004L318.895 105.378L321.257 94.9932L324.349 100.81L325.032 80.0829L327.604 61.5733L329.357 74.9864L332.611 52.6565L334.352 48.5552L335.785 55.2637L338.377 59.5888V73.426L341.699 87.5181L343.843 93.4347L347.714 82.1171L350.229 78.6821L351.974 89.7556L353.323 94.9932L355.821 93.4347L357.799 102.127L360.684 108.794L363.219 98.004L365 89.7556" stroke="#06b6d4" stroke-width="2" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team / Users Card -->
+                <div class="glass-card bento-card col-span-6 lg:col-span-3">
+                    <div class="card-content d-flex flex-column flex-sm-row gap-4">
+                        <div class="flex-grow-1 d-flex flex-column justify-content-between">
+                            <div class="size-12 rounded-full border border-white-10 d-flex mb-4">
+                                <i data-lucide="users" class="m-auto text-cyan"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-2">Team Coordination</h5>
+                                <p class="text-muted small mb-0">Manage operators and maintenance staff with delegated access controls.</p>
+                            </div>
+                        </div>
+                        <div class="flex-grow-1 position-relative d-flex flex-column justify-content-center gap-3 py-3 border-start border-white-10">
+                            <div class="d-flex align-items-center gap-2 justify-content-end w-75 ms-auto pe-3">
+                                <span class="badge border border-white-10 text-muted fw-normal">Operator 1</span>
+                                <img class="size-8 rounded-full border border-white-10" src="https://ui-avatars.com/api/?name=Op+1&background=06b6d4&color=fff" alt="">
+                            </div>
+                            <div class="d-flex align-items-center gap-2 ps-3">
+                                <img class="size-8 rounded-full border border-white-10" src="https://ui-avatars.com/api/?name=Manager&background=f59e0b&color=fff" alt="">
+                                <span class="badge border border-white-10 text-muted fw-normal">Manager</span>
+                            </div>
+                            <div class="d-flex align-items-center gap-2 justify-content-end w-75 ms-auto pe-3">
+                                <span class="badge border border-white-10 text-muted fw-normal">Op 2</span>
+                                <img class="size-8 rounded-full border border-white-10" src="https://ui-avatars.com/api/?name=Op+2&background=06b6d4&color=fff" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
